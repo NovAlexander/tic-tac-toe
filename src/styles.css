@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .game-info {
+  margin-left: 20px;
+} */
+
+.game-info__starter {}
+
+/* .game-info__start-btn {
+  display: none;
+} */
+
+/* стили оверлэя */
+
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.result-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  animation: result-blur-in 0.5s ease forwards;
+}
+
+@keyframes result-blur-in {
+  to {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+.result-overlay__winner-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: result-icon-pop 0.35s ease forwards, result-icon-fade 0.3s ease 0.45s forwards;
+}
+
+.result-overlay__winner-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes result-icon-pop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes result-icon-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+.result-overlay__cloud {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  fill: #ffffff;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.25));
+  animation: result-cloud-grow 0.9s ease 0.3s forwards;
+}
+
+@keyframes result-cloud-grow {
+  from {
+    width: 40px;
+    height: 40px;
+  }
+
+  to {
+    width: 160vmax;
+    height: 160vmax;
+  }
+}
+
+.result-overlay__text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding: 0 1rem;
+  opacity: 0;
+  animation: result-text-fade 0.5s ease 1.2s forwards;
+}
+
+@keyframes result-text-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+.result-overlay__message {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.result-overlay__restart-btn {
+  pointer-events: auto;
+}
